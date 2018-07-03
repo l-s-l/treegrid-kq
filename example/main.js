@@ -2,13 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Example from './Example';
-import ZkTable from '../src';
+import ZkTableTreeGrid from '../src';
 
 Vue.config.productionTip = false;
 
-// Vue.component(ZkTable.name, ZkTable);
+// Vue.component(ZkTableTreeGrid.name, ZkTableTreeGrid);
 
-Vue.use(ZkTable);
+Vue.use(ZkTableTreeGrid);
 
 /* eslint-disable no-new */
 new Vue({
