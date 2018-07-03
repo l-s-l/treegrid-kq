@@ -171,7 +171,7 @@
   }
 
   export default {
-    name: 'zk-tableTreeGrid',
+    name: 'zk-tabletreegrid',
     mixins: [mixins],
     components: {
       TableHeader,
