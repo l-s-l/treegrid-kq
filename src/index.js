@@ -1,7 +1,7 @@
-import ZkTableTreeGrid from './Table/Table';
+import flagComponent from './Table/Table';
 
 ZkTableTreeGrid.install = (Vue) => {
-  Vue.component(ZkTableTreeGrid.name, ZkTableTreeGrid);
+  Vue.component('ZkTableTreeGrid', flagComponent);
 };
 
 export default ZkTableTreeGrid;
