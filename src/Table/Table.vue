@@ -102,6 +102,9 @@
   }
 
   function initialState(table) {
+  if(table.isFold){
+    alert("OK");  
+  }
     return {
       bodyHeight: 'auto',
       firstProp: table.columns[0].prop,
