@@ -80,6 +80,8 @@
      //存在pId=0时第一级菜单展开
       if(row.pId!='undefined'&&row.pId!=null&&row.pId == '0'){
         isFold = false;
+      }else{
+        isFold = true;
       }
      bodyData.push({
         _isHover: false,
