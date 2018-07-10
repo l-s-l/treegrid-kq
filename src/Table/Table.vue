@@ -73,16 +73,15 @@
   /* eslint-disable no-param-reassign */
 
   function getBodyData(data, isTreeType, childrenProp, isFold, level = 1) {
+  if(level>2){
+		isFold=true;
+	  }else{
+		isFold=false;
+	  }
     let bodyData = [];
     data.forEach((row, index) => {
       const children = row[childrenProp];
       const childrenLen = Object.prototype.toString.call(children).slice(8, -1) === 'Array' ? children.length : 0;
-     //存在pId=0时第一级菜单展开
-      if(row.pId!='undefined'&&row.pId!=null&&row.pId == '0'){
-        isFold = false;
-      }else{
-        isFold = true;
-      }
      bodyData.push({
         _isHover: false,
         _isExpanded: false,
