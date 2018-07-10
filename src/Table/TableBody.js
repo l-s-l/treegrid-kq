@@ -208,21 +208,50 @@ export default {
           onOn-change={ isChecked => this.handleEvent(null, 'checkbox', { row, rowIndex, column, columnIndex }, { isChecked }) }>
           </Checkbox>;
       }
-      // Tree's firstProp
+            // Tree's firstProp
       if (this.table.treeType && this.table.firstProp === column.prop) {
-        return <span
+        if(row._level==1){
+          return <span
           class={ `${this.prefixCls}--level-${row._level}-cell` }
           style={{
             marginLeft: `${(row._level - 1) * 24}px`,
-            paddingLeft: row._childrenLen === 0 ? '20px' : '',
+              paddingLeft: row._childrenLen === 0 ? '20px' : '',
           }}>
-            { row._childrenLen > 0 &&
-              <i
-                class={ `${this.prefixCls}--tree-icon zk-icon zk-icon-${row._isFold ? 'plus' : 'minus'}-square-o`}
-                on-click={ $event => this.handleEvent($event, 'icon', { row, rowIndex, column, columnIndex }, { isFold: row._isFold }) }></i>
-            }
-            { row[column.prop] ? row[column.prop] : '' }
+          { row._childrenLen > 0 &&
+          <i
+          /*class={`${this.prefixCls}--tree-icon zk-icon zk-icon-${row._isFold ? 'plus' : 'minus'}-square-o`}*/
+            on-click={ $event => this.handleEvent($event, 'icon', { row, rowIndex, column, columnIndex }, { isFold: row._isFold }) }></i>
+          }
+          { row[column.prop] ? row[column.prop] : '' }
         </span>;
+        }else{
+          return <span
+          class={ `${this.prefixCls}--level-${row._level}-cell` }
+          style={{
+            marginLeft: `${(row._level - 1) * 24}px`,
+              paddingLeft: row._childrenLen === 0 ? '20px' : '',
+          }}>
+          { row._childrenLen > 0 &&
+          <i
+          class={ `${this.prefixCls}--tree-icon zk-icon zk-icon-${row._isFold ? 'plus' : 'minus'}-square-o`}
+            on-click={ $event => this.handleEvent($event, 'icon', { row, rowIndex, column, columnIndex }, { isFold: row._isFold }) }></i>
+          }
+          { row[column.prop] ? row[column.prop] : '' }
+        </span>;
+        }
+        /*return <span
+         //class={ `${this.prefixCls}--level-${row._level}-cell` }
+         style={{
+         marginLeft: `${(row._level - 1) * 24}px`,
+         paddingLeft: row._childrenLen === 0 ? '20px' : '',
+         }}>
+         { row._childrenLen > 0 &&
+         <i
+         class={ `${this.prefixCls}--tree-icon zk-icon zk-icon-${row._isFold ? 'plus' : 'minus'}-square-o`}
+         on-click={ $event => this.handleEvent($event, 'icon', { row, rowIndex, column, columnIndex }, { isFold: row._isFold }) }></i>
+         }
+         { row[column.prop] ? row[column.prop] : '' }
+         </span>;*/
       }
       // TreeType children's index
       if (this.table.showIndex && this.table.treeType && column.prop === '_normalIndex' && row._level > 1) {
